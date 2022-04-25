@@ -18,7 +18,7 @@ const Header = () => {
           <input type="text" placeholder="Search" />
         </div>
         <div className="header__navlinks-container">
-          <Link to="/">
+          <Link to="/home">
             <HomeOutlinedIcon fontSize="large" />
           </Link>
           <Link to="/messages">
@@ -30,8 +30,15 @@ const Header = () => {
           <Link to="/explore">
             <ExploreOutlinedIcon fontSize="large" />
           </Link>
-          <Link to="notifications">
+          <Link to="/notifications">
             <FavoriteBorderOutlinedIcon fontSize="large" />
+          </Link>
+          <Link to="/profile">
+            <img
+              src="https://randomuser.me/api/portraits/med/men/75.jpg"
+              alt="avatar"
+              className="avatar"
+            />
           </Link>
         </div>
       </div>
