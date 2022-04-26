@@ -5,8 +5,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
-import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 const Header = () => {
   return (
@@ -26,12 +24,6 @@ const Header = () => {
           </Link>
           <Link to="/addpost">
             <AddBoxOutlinedIcon fontSize="large" className="icon" />
-          </Link>
-          <Link to="/explore">
-            <ExploreOutlinedIcon fontSize="large" className="icon" />
-          </Link>
-          <Link to="/notifications">
-            <FavoriteBorderOutlinedIcon fontSize="large" className="icon" />
           </Link>
           <Link to="/profile">
             <img
