@@ -18,20 +18,20 @@ const Header = () => {
           <input type="text" placeholder="Search" />
         </div>
         <div className="header__navlinks-container">
-          <Link to="/home">
-            <HomeOutlinedIcon fontSize="large" />
+          <Link to="/">
+            <HomeOutlinedIcon fontSize="large" className="icon" />
           </Link>
           <Link to="/messages">
-            <InboxOutlinedIcon fontSize="large" />
+            <InboxOutlinedIcon fontSize="large" className="icon" />
           </Link>
           <Link to="/addpost">
-            <AddBoxOutlinedIcon fontSize="large" />
+            <AddBoxOutlinedIcon fontSize="large" className="icon" />
           </Link>
           <Link to="/explore">
-            <ExploreOutlinedIcon fontSize="large" />
+            <ExploreOutlinedIcon fontSize="large" className="icon" />
           </Link>
           <Link to="/notifications">
-            <FavoriteBorderOutlinedIcon fontSize="large" />
+            <FavoriteBorderOutlinedIcon fontSize="large" className="icon" />
           </Link>
           <Link to="/profile">
             <img

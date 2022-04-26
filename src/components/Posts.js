@@ -23,11 +23,13 @@ const Posts = () => {
   ]);
 
   return (
-    <div className="posts">
-      {users.map((user, index) => (
-        <Post key={index} userData={user} />
-      ))}
-    </div>
+    <>
+      <div className="posts">
+        {users.map((user, index) => (
+          <Post key={index} userData={user} />
+        ))}
+      </div>
+    </>
   );
 };
 

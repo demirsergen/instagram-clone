@@ -2,6 +2,7 @@ import React from "react";
 import "./Post.css";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import SentimentSatisfiedOutlinedIcon from "@mui/icons-material/SentimentSatisfiedOutlined";
 
 const Post = ({ userData }) => {
   return (
@@ -31,6 +32,11 @@ const Post = ({ userData }) => {
           </span>
           <span className="post__info-caption">{userData.caption}</span>
         </div>
+      </div>
+      <div className="comment__container">
+        <SentimentSatisfiedOutlinedIcon />
+        <input type="text" placeholder="Add a comment..." />
+        <button>Post</button>
       </div>
     </div>
   );

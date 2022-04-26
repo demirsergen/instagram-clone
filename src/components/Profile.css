@@ -1,0 +1,29 @@
+.profile__container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile__topSection {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em 4em;
+    border-bottom: .5px solid gray;
+}
+
+.profile__topSection img {
+    width: 150px;
+    border-radius: 50%;
+    margin-right: 4em;
+}
+
+.username__container {
+    margin-bottom: 1em;
+}
+
+.counts__container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: 1em 0;
+}

@@ -1,11 +1,11 @@
 .post__container {
     max-width: 600px;
-    border: 1px solid red;
+    border: .5px solid gray;
+    background-color: white;
 }
 
 .post__container img {
     max-width: 100%;
-    /* aspect-ratio: 16/16; */
 }
 
 .post__header {
@@ -22,7 +22,7 @@
 }
 
 .buttons__container {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     align-items: center;
     gap: .5em;
@@ -43,4 +43,28 @@
     align-items: center;
     justify-content: flex-start;
     gap: .5em;
+}
+
+.comment__container {
+    border-top: 1px solid gray;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items:center;
+    gap: .5em;
+}
+
+.comment__container input {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.comment__container button {
+    padding: 5px;
+    border: none;
+    background: transparent;
+    color: blue;
+    cursor: pointer;
 }
