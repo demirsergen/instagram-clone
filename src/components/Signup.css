@@ -1,0 +1,81 @@
+.signup__outerDiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.signup__container {
+    width: 400px;
+    padding: 3em 0;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background: white;
+}
+
+.inputs__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.inputs__container input {
+    width: 80%;
+    padding: 10px;
+    background: rgb(238, 238, 238);
+    border:none;
+    border-radius: 5px;
+}
+
+.inputs__container button {
+    width: 80%;
+    padding: 10px;
+    background: rgb(238, 238, 238);
+    border:none;
+    border-radius: 5px;
+    color: #0095f6;
+    cursor:pointer;
+}
+
+.line_or_line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5em;
+}
+
+.line {
+    height: 1px;
+    width: 100px;
+    background: gray;
+    flex: 1;
+}
+
+.signin__link-container {
+    border: 1px solid black;
+    width: 400px;
+    padding: 1em 3em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    background: white;
+}
+
+.signin__link-container .signin__link {
+    background: transparent;
+    border:none;
+    border-radius: 5px;
+    color: #0095f6;
+    cursor:pointer;
+    text-decoration: none;
+}

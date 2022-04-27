@@ -6,6 +6,7 @@ import AddPost from "./components/AddPost";
 import Posts from "./components/Posts";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="login" element={<Login />}></Route>
+        <Route path="signup" element={<Signup />}></Route>
         <Route path="" element={<Posts />}></Route>
         <Route path="messages" element={<Messages />}></Route>
         <Route path="addpost" element={<AddPost />}></Route>
