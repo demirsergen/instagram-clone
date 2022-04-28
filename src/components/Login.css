@@ -37,14 +37,18 @@
     border-radius: 5px;
 }
 
-.inputs__container button {
+.login__button {
     width: 80%;
     padding: 10px;
-    background: rgb(238, 238, 238);
+    background: #0095f6;
     border:none;
     border-radius: 5px;
-    color: #0095f6;
+    color: white;
     cursor:pointer;
+}
+
+.login__button:hover {
+    background: #007dd0;
 }
 
 .line_or_line {
@@ -79,3 +83,13 @@
     cursor:pointer;
     text-decoration: none;
 }
+
+.signin__withGoogleButton {
+    padding: 10px;
+    cursor:pointer;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    color: #0095f6;
+}
+

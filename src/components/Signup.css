@@ -37,14 +37,18 @@
     border-radius: 5px;
 }
 
-.inputs__container button {
+.signup__button {
     width: 80%;
     padding: 10px;
-    background: rgb(238, 238, 238);
+    background: #0095f6;
     border:none;
     border-radius: 5px;
-    color: #0095f6;
+    color: white;
     cursor:pointer;
+}
+
+.signup__button:hover {
+    background: #007dd0;
 }
 
 .line_or_line {

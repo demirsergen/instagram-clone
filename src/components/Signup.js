@@ -6,7 +6,7 @@ import { UserAuth } from "../context/AuthContext";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { createUser } = UserAuth();
+  const { createUser, signInWithGoogle } = UserAuth();
 
   const navigate = useNavigate();
 
@@ -25,6 +25,12 @@ const Signup = () => {
         <div className="signup__container">
           <h3>Instagram</h3>
           <p>Sign up to see photos and videos from your friends.</p>
+          <button
+            onClick={signInWithGoogle}
+            className="signin__withGoogleButton"
+          >
+            Log in with Google
+          </button>
           <div className="line_or_line">
             <div className="line"></div>
             <div>OR</div>

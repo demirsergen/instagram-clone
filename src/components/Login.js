@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { signIn, signInWithGoogle } = UserAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -48,6 +48,12 @@ const Login = () => {
             <div>OR</div>
             <div className="line"></div>
           </div>
+          <button
+            onClick={signInWithGoogle}
+            className="signin__withGoogleButton"
+          >
+            Log in with Google
+          </button>
         </div>
         <div className="signup__link-container">
           <span>Don't have an account?</span>
