@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import "./Posts.css";
+import React, { useState } from "react";
+import "./Home.css";
 import Post from "./Post";
 
-const Posts = () => {
+const Home = () => {
   const [users, setUsers] = useState([
     {
       username: "johndoe",
@@ -24,7 +24,7 @@ const Posts = () => {
 
   return (
     <>
-      <div className="posts">
+      <div className="home">
         {users.map((user, index) => (
           <Post key={index} userData={user} />
         ))}
@@ -33,4 +33,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default Home;

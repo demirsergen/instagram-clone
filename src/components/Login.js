@@ -1,33 +1,52 @@
 import "./Login.css";
-import { Link } from "react-router-dom";
-
-import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const { signIn } = UserAuth();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signIn(email, password);
+      navigate("/profile");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
   return (
     <>
       <div className="login__outerDiv">
         <div className="login__container">
           <h3>Instagram</h3>
-          <div className="inputs__container">
+          <form className="inputs__container" onSubmit={handleLogin}>
             <input
-              type="text"
-              name="username"
-              id="login__username"
-              placeholder="username"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               name="password"
-              id="login__password"
               placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="login__button">Log In</button>
-          </div>
-          <div class="line_or_line">
-            <div class="line"></div>
+            <button className="login__button" onClick={handleLogin}>
+              Log In
+            </button>
+          </form>
+          <div className="line_or_line">
+            <div className="line"></div>
             <div>OR</div>
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
         </div>
         <div className="signup__link-container">

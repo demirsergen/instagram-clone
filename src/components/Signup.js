@@ -1,50 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
+import { UserAuth } from "../context/AuthContext";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { createUser } = UserAuth();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await createUser(email, password);
+      navigate("/profile");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
   return (
     <>
       <div className="signup__outerDiv">
         <div className="signup__container">
           <h3>Instagram</h3>
           <p>Sign up to see photos and videos from your friends.</p>
-          <div class="line_or_line">
-            <div class="line"></div>
+          <div className="line_or_line">
+            <div className="line"></div>
             <div>OR</div>
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
-          <div className="inputs__container">
+          <form className="inputs__container" onSubmit={handleSubmit}>
             <input
               type="text"
               name="email"
               id="signup__email"
               placeholder="Email"
-            />
-            <input
-              type="text"
-              name="fullname"
-              id="signup__fullname"
-              placeholder="Full Name"
-            />
-            <input
-              type="text"
-              name="username"
-              id="signup__username"
-              placeholder="Username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               name="password"
               id="signup__password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button className="signup__button">Sign up</button>
-          </div>
+          </form>
         </div>
         <div className="signin__link-container">
           <span>Have an account?</span>
-          <Link to="/login" className="signin__link">
+          <Link to="/" className="signin__link">
             Sign In
           </Link>
         </div>
