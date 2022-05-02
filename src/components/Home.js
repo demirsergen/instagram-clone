@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import Post from "./Post";
+import { UserAuth } from "../context/AuthContext";
 
 const Home = () => {
   const [users, setUsers] = useState([
@@ -22,13 +24,21 @@ const Home = () => {
     },
   ]);
 
+  const navigate = useNavigate();
+
+  const { user } = UserAuth();
+
   return (
     <>
-      <div className="home">
-        {users.map((user, index) => (
-          <Post key={index} userData={user} />
-        ))}
-      </div>
+      {user ? (
+        <div className="home">
+          {users.map((user, index) => (
+            <Post key={index} userData={user} />
+          ))}
+        </div>
+      ) : (
+        navigate("/")
+      )}
     </>
   );
 };
