@@ -13,6 +13,10 @@
     margin: 0 auto;
 }
 
+.header__logo {
+    max-width:110px;
+}
+
 .header__searchbox-container {
     display: flex;
     align-items: center;
@@ -20,14 +24,13 @@
     gap: .5em;
     background: rgb(239, 239, 239);
     padding: .5em 2em .5em .5em;
-    width: 300px;
+    width: 256px;
     border-radius: 10px;
 }
 
 .header__searchbox-container input {
     background: transparent;
     border: none;
-    padding: 5px 10px;
     outline: none;
     flex: 1;
 }

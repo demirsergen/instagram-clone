@@ -1,5 +1,5 @@
 import "./Login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const { signIn, signInWithGoogle } = UserAuth();
+  const { signIn, signInWithGoogle, user } = UserAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,6 +19,12 @@ const Login = () => {
       console.log(e.message);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/home");
+    }
+  });
   return (
     <>
       <div className="login__outerDiv">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import Post from "./Post";
@@ -25,19 +25,22 @@ const Home = () => {
   ]);
 
   const navigate = useNavigate();
-
   const { user } = UserAuth();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, [user]);
 
   return (
     <>
-      {user ? (
+      {user && (
         <div className="home">
           {users.map((user, index) => (
             <Post key={index} userData={user} />
           ))}
         </div>
-      ) : (
-        navigate("/")
       )}
     </>
   );

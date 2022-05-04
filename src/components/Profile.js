@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./Profile.css";
 import { UserAuth } from "../context/AuthContext";
 
 const Profile = () => {
-  const { logout } = UserAuth();
+  const { logout, user } = UserAuth();
 
   const navigate = useNavigate();
 
@@ -17,30 +17,38 @@ const Profile = () => {
       console.log(e.message);
     }
   };
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
   return (
     <>
-      <div className="profile__container">
-        <div className="profile__topSection">
-          <img
-            src="https://randomuser.me/api/portraits/med/men/75.jpg"
-            alt=""
-          />
-          <div className="profile__topSection-right">
-            <div className="username__container">
-              <h2>username</h2>
-              <button onClick={handleLogout}>Logout</button>
-            </div>
-            <div className="counts__container">
-              <p className="posts__count">21 posts</p>
-              <p className="followers__count">214 followers</p>
-              <p className="following__count">200 following</p>
-            </div>
-            <div className="name">
-              <p>name</p>
+      {user && (
+        <div className="profile__container">
+          <div className="profile__topSection">
+            <img
+              src="https://randomuser.me/api/portraits/med/men/75.jpg"
+              alt=""
+            />
+            <div className="profile__topSection-right">
+              <div className="username__container">
+                <h3>Email: {user.email}</h3>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+              <div className="counts__container">
+                <p className="posts__count">21 posts</p>
+                <p className="followers__count">214 followers</p>
+                <p className="following__count">200 following</p>
+              </div>
+              <div className="name">
+                <p>name</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

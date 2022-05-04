@@ -14,7 +14,11 @@ const Header = () => {
     user && (
       <div className="header__container">
         <div className="header">
-          <h2>Instagram</h2>
+          <img
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png"
+            alt="logo"
+            className="header__logo"
+          />
           <div className="header__searchbox-container">
             <SearchIcon />
             <input type="text" placeholder="Search" />
