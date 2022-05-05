@@ -7,8 +7,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { auth, db } from "../firebase";
-import { addDoc, collection, setDoc } from "firebase/firestore";
+import { auth, db, storage } from "../firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
 
 const UserContext = createContext();
 
@@ -22,6 +23,9 @@ export const AuthContextProvider = ({ children }) => {
         await addDoc(collection(db, "users"), {
           userId: user.user.uid,
           userEmail: user.user.email,
+          userPosts: 0,
+          userFollowing: 0,
+          userFollowers: 0,
         });
         console.log(user);
       }
@@ -40,27 +44,33 @@ export const AuthContextProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const uploadPhoto = (fileName) => {
+    const photosRef = ref(storage, `images/${fileName.name}`);
+    uploadBytes(photosRef, fileName).then((snapshot) => {
+      alert("Upload successful!");
+    });
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser);
     });
     return () => {
       unsubscribe();
     };
   }, []);
 
-  // const usersCollectionRef = collection(db, "users");
-  // useEffect(() => {
-  //   const getUsers = async () => {
-  //     const data = await getDocs(usersCollectionRef);
-  //     console.log(data);
-  //   };
-  //   getUsers();
-  // }, []);
-
   return (
     <UserContext.Provider
-      value={{ createUser, signIn, logout, signInWithGoogle, user }}
+      value={{
+        createUser,
+        signIn,
+        logout,
+        signInWithGoogle,
+        uploadPhoto,
+        user,
+      }}
     >
       {children}
     </UserContext.Provider>

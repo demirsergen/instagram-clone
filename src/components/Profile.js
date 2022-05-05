@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./Profile.css";
 import { UserAuth } from "../context/AuthContext";
 
 const Profile = () => {
   const { logout, user } = UserAuth();
+
+  console.log(user);
 
   const navigate = useNavigate();
 
@@ -38,9 +39,13 @@ const Profile = () => {
                 <button onClick={handleLogout}>Logout</button>
               </div>
               <div className="counts__container">
-                <p className="posts__count">21 posts</p>
-                <p className="followers__count">214 followers</p>
-                <p className="following__count">200 following</p>
+                <p className="posts__count">{user.userPosts} posts</p>
+                <p className="followers__count">
+                  {user.userFollowers} followers
+                </p>
+                <p className="following__count">
+                  {user.userFollowing} following
+                </p>
               </div>
               <div className="name">
                 <p>name</p>
