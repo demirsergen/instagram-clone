@@ -28,7 +28,7 @@ const Home = () => {
   const { user } = UserAuth();
 
   useEffect(() => {
-    if (!user) {
+    if (user === null) {
       navigate("/");
     }
   }, []);

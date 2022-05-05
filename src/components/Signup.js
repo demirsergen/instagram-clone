@@ -21,7 +21,7 @@ const Signup = () => {
   };
   return (
     <>
-      {!user && (
+      {user === null && (
         <div className="signup__outerDiv">
           <div className="signup__container">
             <h3>Instagram</h3>

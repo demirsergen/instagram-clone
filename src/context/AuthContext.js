@@ -8,7 +8,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, setDoc, doc } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
 
 const UserContext = createContext();
@@ -18,18 +18,19 @@ export const AuthContextProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
 
   const createUser = async (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password).then(
-      async (user) => {
-        await addDoc(collection(db, "users"), {
-          userId: user.user.uid,
-          userEmail: user.user.email,
-          userPosts: 0,
-          userFollowing: 0,
-          userFollowers: 0,
-        });
-        console.log(user);
-      }
-    );
+    const newUser = await createUserWithEmailAndPassword(auth, email, password);
+    writeUserData(newUser);
+    return newUser;
+  };
+
+  const writeUserData = async (user) => {
+    await setDoc(doc(db, `users`, user.user.uid), {
+      userId: user.user.uid,
+      userEmail: user.user.email,
+      userPosts: 0,
+      userFollowing: 0,
+      userFollowers: 0,
+    });
   };
 
   const signIn = (email, password) => {
@@ -54,7 +55,6 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
     });
     return () => {
       unsubscribe();

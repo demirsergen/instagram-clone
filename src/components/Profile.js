@@ -6,8 +6,6 @@ import { UserAuth } from "../context/AuthContext";
 const Profile = () => {
   const { logout, user } = UserAuth();
 
-  console.log(user);
-
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -20,7 +18,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (user === null) {
       navigate("/");
     }
   }, []);
